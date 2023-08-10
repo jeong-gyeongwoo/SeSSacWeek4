@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F4116F2F2A832306000D08E4 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4116F2E2A832306000D08E4 /* VideoTableViewCell.swift */; };
+		F45277422A81C4D8007CF91A /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45277412A81C4D8007CF91A /* WeatherViewController.swift */; };
+		F45277442A81E793007CF91A /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45277432A81E793007CF91A /* VideoViewController.swift */; };
 		F47810C82A8096740044C823 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47810C72A8096740044C823 /* AppDelegate.swift */; };
 		F47810CA2A8096740044C823 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47810C92A8096740044C823 /* SceneDelegate.swift */; };
 		F47810CC2A8096740044C823 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47810CB2A8096740044C823 /* ViewController.swift */; };
@@ -17,9 +20,14 @@
 		F47810E02A8096CB0044C823 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = F47810DF2A8096CB0044C823 /* SwiftyJSON */; };
 		F47810E32A8096D50044C823 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F47810E22A8096D50044C823 /* Kingfisher */; };
 		F47810E52A809BA00044C823 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F47810E42A809BA00044C823 /* .gitignore */; };
+		F47810E72A809C3D0044C823 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47810E62A809C3D0044C823 /* TranslationViewController.swift */; };
+		F47810EB2A809C860044C823 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47810EA2A809C860044C823 /* APIKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F4116F2E2A832306000D08E4 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		F45277412A81C4D8007CF91A /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		F45277432A81E793007CF91A /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		F47810C42A8096740044C823 /* SeSSacWeek4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSSacWeek4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47810C72A8096740044C823 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F47810C92A8096740044C823 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -29,6 +37,8 @@
 		F47810D32A8096750044C823 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F47810D52A8096750044C823 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F47810E42A809BA00044C823 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		F47810E62A809C3D0044C823 /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
+		F47810EA2A809C860044C823 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +58,7 @@
 		F47810BB2A8096740044C823 = {
 			isa = PBXGroup;
 			children = (
+				F45277432A81E793007CF91A /* VideoViewController.swift */,
 				F47810C62A8096740044C823 /* SeSSacWeek4 */,
 				F47810C52A8096740044C823 /* Products */,
 			);
@@ -64,11 +75,15 @@
 		F47810C62A8096740044C823 /* SeSSacWeek4 */ = {
 			isa = PBXGroup;
 			children = (
+				F4116F2E2A832306000D08E4 /* VideoTableViewCell.swift */,
 				F47810C72A8096740044C823 /* AppDelegate.swift */,
 				F47810C92A8096740044C823 /* SceneDelegate.swift */,
 				F47810CB2A8096740044C823 /* ViewController.swift */,
 				F47810E42A809BA00044C823 /* .gitignore */,
+				F47810EA2A809C860044C823 /* APIKey.swift */,
+				F47810E62A809C3D0044C823 /* TranslationViewController.swift */,
 				F47810CD2A8096740044C823 /* Main.storyboard */,
+				F45277412A81C4D8007CF91A /* WeatherViewController.swift */,
 				F47810D02A8096750044C823 /* Assets.xcassets */,
 				F47810D22A8096750044C823 /* LaunchScreen.storyboard */,
 				F47810D52A8096750044C823 /* Info.plist */,
@@ -158,9 +173,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F47810E72A809C3D0044C823 /* TranslationViewController.swift in Sources */,
+				F45277442A81E793007CF91A /* VideoViewController.swift in Sources */,
+				F45277422A81C4D8007CF91A /* WeatherViewController.swift in Sources */,
 				F47810CC2A8096740044C823 /* ViewController.swift in Sources */,
 				F47810C82A8096740044C823 /* AppDelegate.swift in Sources */,
+				F4116F2F2A832306000D08E4 /* VideoTableViewCell.swift in Sources */,
 				F47810CA2A8096740044C823 /* SceneDelegate.swift in Sources */,
+				F47810EB2A809C860044C823 /* APIKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
