@@ -7,9 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F40F71492A85BAA4006EA286 /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40F71482A85BAA4006EA286 /* ReusableViewProtocol.swift */; };
+		F40F714B2A85BD03006EA286 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40F714A2A85BD03006EA286 /* UserDefaultsHelper.swift */; };
+		F40F714D2A85C512006EA286 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40F714C2A85C512006EA286 /* EndPoint.swift */; };
+		F40F714F2A85C5CD006EA286 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40F714E2A85C5CD006EA286 /* URL+Extension.swift */; };
+		F40F71512A85C781006EA286 /* KakaoAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40F71502A85C781006EA286 /* KakaoAPIManager.swift */; };
 		F4116F2F2A832306000D08E4 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4116F2E2A832306000D08E4 /* VideoTableViewCell.swift */; };
+		F42D9FEA2A8A02390084CA79 /* BoxOfficeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42D9FE92A8A02390084CA79 /* BoxOfficeData.swift */; };
 		F45277422A81C4D8007CF91A /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45277412A81C4D8007CF91A /* WeatherViewController.swift */; };
 		F45277442A81E793007CF91A /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45277432A81E793007CF91A /* VideoViewController.swift */; };
+		F46D53782A85E36700C10BE2 /* TranslateAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46D53772A85E36700C10BE2 /* TranslateAPIManager.swift */; };
+		F46D537A2A85F9F400C10BE2 /* AsyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46D53792A85F9F400C10BE2 /* AsyncViewController.swift */; };
 		F47810C82A8096740044C823 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47810C72A8096740044C823 /* AppDelegate.swift */; };
 		F47810CA2A8096740044C823 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47810C92A8096740044C823 /* SceneDelegate.swift */; };
 		F47810CC2A8096740044C823 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47810CB2A8096740044C823 /* ViewController.swift */; };
@@ -25,9 +33,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F40F71482A85BAA4006EA286 /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
+		F40F714A2A85BD03006EA286 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		F40F714C2A85C512006EA286 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		F40F714E2A85C5CD006EA286 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
+		F40F71502A85C781006EA286 /* KakaoAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAPIManager.swift; sourceTree = "<group>"; };
 		F4116F2E2A832306000D08E4 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		F42D9FE92A8A02390084CA79 /* BoxOfficeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeData.swift; sourceTree = "<group>"; };
 		F45277412A81C4D8007CF91A /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		F45277432A81E793007CF91A /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		F46D53772A85E36700C10BE2 /* TranslateAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateAPIManager.swift; sourceTree = "<group>"; };
+		F46D53792A85F9F400C10BE2 /* AsyncViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncViewController.swift; sourceTree = "<group>"; };
 		F47810C42A8096740044C823 /* SeSSacWeek4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSSacWeek4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47810C72A8096740044C823 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F47810C92A8096740044C823 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +75,9 @@
 			isa = PBXGroup;
 			children = (
 				F45277432A81E793007CF91A /* VideoViewController.swift */,
+				F40F714C2A85C512006EA286 /* EndPoint.swift */,
+				F40F71502A85C781006EA286 /* KakaoAPIManager.swift */,
+				F40F714E2A85C5CD006EA286 /* URL+Extension.swift */,
 				F47810C62A8096740044C823 /* SeSSacWeek4 */,
 				F47810C52A8096740044C823 /* Products */,
 			);
@@ -79,14 +98,19 @@
 				F47810C72A8096740044C823 /* AppDelegate.swift */,
 				F47810C92A8096740044C823 /* SceneDelegate.swift */,
 				F47810CB2A8096740044C823 /* ViewController.swift */,
+				F42D9FE92A8A02390084CA79 /* BoxOfficeData.swift */,
 				F47810E42A809BA00044C823 /* .gitignore */,
 				F47810EA2A809C860044C823 /* APIKey.swift */,
 				F47810E62A809C3D0044C823 /* TranslationViewController.swift */,
+				F46D53772A85E36700C10BE2 /* TranslateAPIManager.swift */,
 				F47810CD2A8096740044C823 /* Main.storyboard */,
+				F46D53792A85F9F400C10BE2 /* AsyncViewController.swift */,
 				F45277412A81C4D8007CF91A /* WeatherViewController.swift */,
 				F47810D02A8096750044C823 /* Assets.xcassets */,
 				F47810D22A8096750044C823 /* LaunchScreen.storyboard */,
 				F47810D52A8096750044C823 /* Info.plist */,
+				F40F71482A85BAA4006EA286 /* ReusableViewProtocol.swift */,
+				F40F714A2A85BD03006EA286 /* UserDefaultsHelper.swift */,
 			);
 			path = SeSSacWeek4;
 			sourceTree = "<group>";
@@ -173,12 +197,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F46D53782A85E36700C10BE2 /* TranslateAPIManager.swift in Sources */,
+				F40F714B2A85BD03006EA286 /* UserDefaultsHelper.swift in Sources */,
 				F47810E72A809C3D0044C823 /* TranslationViewController.swift in Sources */,
 				F45277442A81E793007CF91A /* VideoViewController.swift in Sources */,
+				F40F71492A85BAA4006EA286 /* ReusableViewProtocol.swift in Sources */,
+				F40F714D2A85C512006EA286 /* EndPoint.swift in Sources */,
+				F40F71512A85C781006EA286 /* KakaoAPIManager.swift in Sources */,
+				F40F714F2A85C5CD006EA286 /* URL+Extension.swift in Sources */,
 				F45277422A81C4D8007CF91A /* WeatherViewController.swift in Sources */,
+				F46D537A2A85F9F400C10BE2 /* AsyncViewController.swift in Sources */,
 				F47810CC2A8096740044C823 /* ViewController.swift in Sources */,
 				F47810C82A8096740044C823 /* AppDelegate.swift in Sources */,
 				F4116F2F2A832306000D08E4 /* VideoTableViewCell.swift in Sources */,
+				F42D9FEA2A8A02390084CA79 /* BoxOfficeData.swift in Sources */,
 				F47810CA2A8096740044C823 /* SceneDelegate.swift in Sources */,
 				F47810EB2A809C860044C823 /* APIKey.swift in Sources */,
 			);
