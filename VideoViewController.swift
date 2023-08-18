@@ -5,26 +5,8 @@
 //  Created by 정경우 on 2023/08/08.
 //
 
-struct Video {
-    let author: String
-    let date: String
-    let time: Int
-    let thumbnail: String
-    let title: String
-    let link: String
-    
-    var contents: String {
-        // get {
-        return "\(author) | \(time) | \(time)회 \n\(date)"
-        // }
-    }
-    
-    
-}
-
 import UIKit
 import Alamofire
-import SwiftyJSON
 import Kingfisher
 
 class VideoViewController: UIViewController {
@@ -32,9 +14,9 @@ class VideoViewController: UIViewController {
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var videoTableView: UITableView!
     
-    var videoList: [Video] = []
-    var page = 1
-    var isEnd = false //현재 페이지가 마지막 페이지인지 점검하는 프로퍼티
+    var videoList: Info = Info(documents: [], meta: Meta(isEnd: false, pageableCount: 1, totalCount: 1))
+    // var isEnd = false //현재 페이지가 마지막 페이지인지 점검하는 프로퍼티
+    var pageCount = 1
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,80 +27,9 @@ class VideoViewController: UIViewController {
         
         searchBar.delegate = self
         
+        // videoTableView.reloadData()
     }
     
-    func callReqest(query: String, page: Int) {
-        
-        //        let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        //        let url = "https://dapi.kakao.com/v2/search/vclip?query=\(text)&size=10&page=\(page)"
-        //        let header: HTTPHeaders = ["Authorization":"\(APIKey.kakaoKey)"]
-        //
-        //        print(url)
-        
-        KakaoAPIManager.shared.callReqeust(query: query, type: .video) { json1 in
-            //print("============== \(json1)")
-            
-            for item in json1["documents"].arrayValue {
-                let author = item["author"].stringValue
-                let date = item["datetime"].stringValue
-                let time = item["play_time"].intValue
-                let thumbnail = item["thumbnail"].stringValue
-                let title = item["title"].stringValue
-                let link = item["url"].stringValue
-                
-                let data = Video(author: author, date: date, time: time, thumbnail: thumbnail, title: title, link: link)
-                
-                self.videoList.append(data)
-            }
-            //print(self.videoList)
-            self.videoTableView.reloadData()
-
-            
-        }
-        
-    }
-    
-    
-//    AF.request(url, method: .get, headers: header).validate(statusCode: 200...500).responseJSON { response in
-//        switch response.result {
-//        case .success(let value):
-//            let json = JSON(value)
-//            print("JSON: \(json)")
-//
-//            //상태코드 번호
-//            print(response.response?.statusCode)
-//
-//            let statusCode = response.response?.statusCode ?? 500
-//
-//            if statusCode == 200 {
-//
-//                self.isEnd = json["meta"]["is_End"].boolValue
-//
-//                for item in json["documents"].arrayValue {
-//
-//                    let author = item["author"].stringValue
-//                    let date = item["datetime"].stringValue
-//                    let time = item["play_time"].intValue
-//                    let thumbnail = item["thumbnail"].stringValue
-//                    let title = item["title"].stringValue
-//                    let link = item["url"].stringValue
-//
-//                    let data = Video(author: author, date: date, time: time, thumbnail: thumbnail, title: title, link: link)
-//
-//                    self.videoList.append(data)
-//                }
-//
-//                print(self.videoList)
-//                self.videoTableView.reloadData()
-//            } else {
-//                print("문제발생. 다시 시도해주세요")
-//            }
-//
-//        case .failure(let error):
-//            print(error)
-//        }
-//
-//    }
     
 }
 
@@ -126,11 +37,16 @@ extension VideoViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked (_ searchBar: UISearchBar) {
         
-        page = 1 // 새로운 검색어를 위해
-        videoList.removeAll()
+        // page = 1 // 새로운 검색어를 위해
+        //videoList.removeAll() -> 덮어쓰니까 여기선 x
         
         guard let query = searchBar.text else { return }
-        callReqest(query: query, page: page)
+        KakaoAPIManager.shared.callReqeust(query: query, type: .video, page: 1) { data in
+            self.videoList = data
+            //print(self.videoList)
+            self.videoTableView.reloadData()
+            
+        }
     }
     
 }
@@ -138,17 +54,22 @@ extension VideoViewController: UISearchBarDelegate {
 extension VideoViewController: UITableViewDelegate, UITableViewDataSource, UITableViewDataSourcePrefetching {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return videoList.count
+        return videoList.documents.count
     }
     
     //extension
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: VideoTableViewCell.identifier) as? VideoTableViewCell else { return UITableViewCell() }
         
-        cell.titleLable.text = videoList[indexPath.row].title
-        cell.contentLable.text = videoList[indexPath.row].contents
+        let date =  videoList.documents[indexPath.row].datetime
+        let playMinute = (videoList.documents[indexPath.row].playTime) / 60
+        let playSecond = (videoList.documents[indexPath.row].playTime) % 60
         
-        if let url = URL(string: videoList[indexPath.row].thumbnail) {
+        cell.titleLable.text = videoList.documents[indexPath.row].title
+        cell.contentLable.text = "\(date) | \(playMinute)분 \(playSecond)초"
+        
+        if let url = URL(string: videoList.documents[indexPath.row].thumbnail) {
             cell.thumbnailIamgeView.kf.setImage(with: url)
         }
         
@@ -163,14 +84,26 @@ extension VideoViewController: UITableViewDelegate, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         
         for indexPaths in indexPaths {
-            //indexPaths.row은 인덱스니까 -1개 더 적음
-            if videoList.count - 1 == indexPaths.row && page < 15 && !isEnd {
-                page += 1
-                callReqest(query: searchBar.text!, page: page)
+            // indexPaths.row은 인덱스니까 -1개 더 적음
+            if videoList.documents.count - 1 == indexPaths.row && pageCount < videoList.meta.pageableCount && !(videoList.meta.isEnd) {
+                print(pageCount)
+                //print(videoList.documents.count)
+                //print(videoList.meta.isEnd)
+                pageCount += 1
+                //print(pageCount)
+                KakaoAPIManager.shared.callReqeust(query: searchBar.text!, type: .video, page: pageCount) { data in
+                    print(data)
+                    //self.videoList = data
+                    self.videoList.documents.append(contentsOf: data.documents)
+                    //print(self.videoList.documents.count)
+                    self.videoTableView.reloadData()
+                }
             }
             
             
         }
+        
+        
     }
     
     // 취소 기능: 직접 취소하는 기능을 구현해주어야 함!
@@ -181,6 +114,4 @@ extension VideoViewController: UITableViewDelegate, UITableViewDataSource, UITab
     
     
 }
-
-
 
